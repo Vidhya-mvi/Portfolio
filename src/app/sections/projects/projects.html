@@ -1,0 +1,46 @@
+<section id="projects" class="min-h-screen bg-white py-20 px-6 text-center">
+  <h2 class="text-4xl font-bold text-blue-600 mb-10">Projects</h2>
+
+  <div class="grid gap-8 sm:grid-cols-2 md:grid-cols-3 max-w-6xl mx-auto">
+    <div
+      *ngFor="let project of projects"
+      class="bg-gray-50 p-6 rounded-xl shadow hover:shadow-xl transform hover:scale-105 transition duration-300 ease-in-out text-left group relative overflow-hidden"
+    >
+      <div class="absolute inset-0 bg-gradient-to-br from-blue-100 to-transparent opacity-0 group-hover:opacity-30 transition duration-300 pointer-events-none"></div>
+
+      <h3 class="text-xl font-semibold text-gray-800 mb-2 group-hover:text-blue-600 transition">
+        {{ project.title }}
+      </h3>
+
+      <p class="text-gray-600 mb-3 group-hover:text-gray-800 transition">
+        {{ project.description }}
+      </p>
+
+      <div class="text-sm mb-3">
+        <span
+          *ngFor="let tech of project.techStack"
+          class="inline-block bg-blue-100 text-blue-700 px-2 py-1 rounded-full mr-1 mb-1 text-xs font-medium transition group-hover:bg-blue-600 group-hover:text-white"
+        >
+          {{ tech }}
+        </span>
+      </div>
+
+      <div class="flex space-x-4 mt-4">
+        <a
+          *ngIf="project.github"
+          [href]="project.github"
+          target="_blank"
+          class="text-purple-600 group-hover:text-purple-900 text-sm"
+          >GitHub</a
+        >
+        <a
+          *ngIf="project.live"
+          [href]="project.live"
+          target="_blank"
+          class="text-green-600 hover:underline text-sm"
+          >Live</a
+        >
+      </div>
+    </div>
+  </div>
+</section>
